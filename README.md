@@ -1,2 +1,2 @@
-# emaily
+# Emaily
 Web Application using Node.js and React.js
