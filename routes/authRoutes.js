@@ -13,6 +13,17 @@ module.exports = app => {
     passport.authenticate('google'));
 
   app.get(
+    '/auth/linkedin',
+    passport.authenticate('linkedin', {
+      state: true
+    })
+  );
+
+  app.get(
+    '/auth/linkedin/callback',
+    passport.authenticate('linkedin'));
+
+  app.get(
     '/api/current_user',
     (req, res) => {
       res.send(req.user);
