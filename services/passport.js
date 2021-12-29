@@ -45,8 +45,7 @@ passport.use(
       clientID: keys.linkedinClientID,
       clientSecret: keys.linkedinClientSecret,
       callbackURL: '/auth/linkedin/callback',
-      scope: ['r_emailaddress', 'r_liteprofile'],
-      proxi: true
+      scope: ['r_emailaddress', 'r_liteprofile']
     },
     (accessToken, refreshToken, profile, done) => {
       User.findOne({ linkedinId: profile.id }).
