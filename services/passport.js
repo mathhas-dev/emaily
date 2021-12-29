@@ -19,7 +19,8 @@ passport.use(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: '/auth/google/callback'
+      callbackURL: '/auth/google/callback',
+      proxy: true
     },
     (accessToken, refreshToken, profile, done) => {
       User.findOne({ googleId: profile.id }).
@@ -45,6 +46,7 @@ passport.use(
       clientSecret: keys.linkedinClientSecret,
       callbackURL: '/auth/linkedin/callback',
       scope: ['r_emailaddress', 'r_liteprofile'],
+      proxi: true
     },
     (accessToken, refreshToken, profile, done) => {
       User.findOne({ linkedinId: profile.id }).
