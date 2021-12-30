@@ -27,12 +27,12 @@ passport.use(
 
       if (existingUser) {
         // User alredy logged in the application
-        done(null, existingUser);
-      } else {
-        // First loggin, creates a new user
-        const user = new User({ googleId: profile.id }).save();
-        done(null, user);
+        return done(null, existingUser);
       }
+
+      // First loggin, creates a new user
+      const user = new User({ googleId: profile.id }).save();
+      done(null, user);
 
     }
   )
