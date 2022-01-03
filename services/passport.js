@@ -23,7 +23,7 @@ passport.use(
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
-      const existingUser = User.findOne({ googleId: profile.id });
+      const existingUser = await User.findOne({ googleId: profile.id });
 
       if (existingUser) {
         // User alredy logged in the application
@@ -31,7 +31,7 @@ passport.use(
       }
 
       // First loggin, creates a new user
-      const user = new User({ googleId: profile.id }).save();
+      const user = await new User({ googleId: profile.id }).save();
       done(null, user);
 
     }
@@ -46,19 +46,17 @@ passport.use(
       callbackURL: '/auth/linkedin/callback',
       scope: ['r_emailaddress', 'r_liteprofile']
     },
-    (accessToken, refreshToken, profile, done) => {
-      User.findOne({ linkedinId: profile.id }).
-        then(existingUser => {
-          if (existingUser) {
-            // User alredy logged in the application
-            done(null, existingUser);
-          } else {
-            // First loggin, creates a new user
-            new User({ linkedinId: profile.id })
-              .save()
-              .then(user => done(null, user));
-          }
-        })
+    async (accessToken, refreshToken, profile, done) => {
+      const existingUser = await User.findOne({ linkedinId: profile.id });
+
+      if (existingUser) {
+        // User alredy logged in the application
+        done(null, existingUser);
+      }
+
+      // First loggin, creates a new user
+      const user = await new User({ linkedinId: profile.id }).save();
+      done(null, user);
     }
   )
 );
