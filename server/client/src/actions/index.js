@@ -15,4 +15,5 @@ export const handleToken = (token) => async dispatch => {
     dispatch({
         type: FETCH_USER, payload: res.data
     })
+    // Note: The response of this handler, is the updated user model
 };
