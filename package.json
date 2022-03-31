@@ -28,6 +28,7 @@
     "passport-google-oauth20": "^2.0.0",
     "passport-linkedin-oauth2": "^2.0.0",
     "redux-thunk": "^2.4.1",
+    "sendgrid": "^5.2.3",
     "stripe": "^8.195.0"
   }
 }
