@@ -22,11 +22,13 @@
     "concurrently": "^6.5.1",
     "cookie-session": "^2.0.0",
     "express": "^4.17.2",
+    "lodash": "^4.17.21",
     "mongoose": "^6.1.4",
     "nodemon": "^2.0.15",
     "passport": "^0.5.2",
     "passport-google-oauth20": "^2.0.0",
     "passport-linkedin-oauth2": "^2.0.0",
+    "path-parser": "^6.1.0",
     "redux-thunk": "^2.4.1",
     "sendgrid": "^5.2.3",
     "stripe": "^8.195.0"
